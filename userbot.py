@@ -1,5 +1,6 @@
 import os, random, time, datetime, asyncio
 from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
@@ -7,7 +8,7 @@ SESSION = os.environ.get("SESSION")
 ALIVE_PIC = "photo_2026-11-21_19-54-14.jpg"
 START = time.time()
 
-client = TelegramClient(SESSION, API_ID, API_HASH)
+client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
 
 JOKES = ["Teacher: Kal homework kyu nahi kiya? Student: Sir light chali gayi thi 😂","Pappu: Mummy 100 me se 100 mile! Mummy: Kis me? Pappu: 50 maths, 50 science 😂","Ek aadmi doctor ke paas gaya, bola mujhe sab 2-2 dikhta hai. Doctor: Baitho, tum 4 log ek saath mat baitho 😂"]
 QUOTES = ["Jeetne wale alag cheez nahi karte, wo cheezo ko alag tarike se karte hai.","Mehnat itni khamoshi se karo ki safalta shor macha de.","Villain banna aasaan hai, legend banna mushkil hai."]
@@ -24,7 +25,7 @@ def uptime():
 # ===== BASIC =====
 @client.on(events.NewMessage(pattern=r"\.alive"))
 async def alive(e):
-    txt = "**⚡ VILLAIN USR BOT IS ALIVE! ⚡**\n\n**👑 OWNER :** VILLAIN\n**🔥 STATUS :** ONLINE\n**💀 MODE :** VILLAIN MODE ON\n**⚙️ VERSION :** V3.0 FINAL\n**⏱️ UPTIME :** "+uptime()+"\n**📦 COMMANDS :** 110+\n\n**😈 AB RAJ KAREGA VILLAIN!**"
+    txt = "**⚡ VILLAIN USR BOT IS ALIVE! ⚡**\n\n**👑 OWNER :** VILLAIN\n**🔥 STATUS :** ONLINE\n**💀 MODE :** VILLAIN MODE ON\n**⚙️ VERSION :** V4.0 FINAL\n**⏱️ UPTIME :** "+uptime()+"\n**📦 COMMANDS :** 110+\n\n**😈 AB RAJ KAREGA VILLAIN!**"
     if os.path.exists(ALIVE_PIC):
         await e.reply(file=ALIVE_PIC, message=txt)
     else:
@@ -36,7 +37,7 @@ async def ping(e): await e.edit("**🏓 PONG! VILLAIN IS HERE! 🔥**")
 @client.on(events.NewMessage(pattern=r"\.help"))
 async def help_cmd(e):
     await e.edit(
-        "**🔥 《 VILLAIN 》 V3.0 ALL COMMANDS 🔥**\n\n"
+        "**🔥 《 VILLAIN 》 V4.0 ALL COMMANDS 🔥**\n\n"
         "**Basic:** .ping .alive .help .id .info .userinfo .time .date .version .bot .owner .uptime .profile .stats .backup\n\n"
         "**Fun:** .joke .quote .fact .shayari .attitude .roast .roastme .truth .dare .compliment .meme .happy .sad .love .hi .bye .good .slap .kiss .hug .ship .gay .cute\n\n"
         "**Game:** .dice .coin .luck .guess .crush .lovecalc .future .horoscope .dream .propose .breakup .bff\n\n"
@@ -46,7 +47,7 @@ async def help_cmd(e):
         "**Prank:** .hack .fakeid .wasted .spam .raid\n\n"
         "**Group King:** .tagall .purge .kick .ban .unban .promote .demote .block .unblock .rules .welcome .goodmorning .goodnight .birthday\n\n"
         "**Extra:** .tea .coffee .song .movie .study .gym .sleep .name .age\n\n"
-        "**👑 VILLAIN USR BOT V3.0**"
+        "**👑 VILLAIN USR BOT V4.0**"
     )
 @client.on(events.NewMessage(pattern=r"\.id"))
 async def idc(e): await e.edit(f"**🆔 Teri ID:** `{e.sender_id}`")
@@ -63,7 +64,7 @@ async def timec(e): await e.edit(f"**🕐 TIME:** {datetime.datetime.now().strft
 @client.on(events.NewMessage(pattern=r"\.date"))
 async def datec(e): await e.edit(f"**📅 DATE:** {datetime.datetime.now().strftime('%d-%m-%Y')}")
 @client.on(events.NewMessage(pattern=r"\.version"))
-async def ver(e): await e.edit("**⚡ VILLAIN USR BOT V3.0 FINAL**")
+async def ver(e): await e.edit("**⚡ VILLAIN USR BOT V4.0 FINAL**")
 @client.on(events.NewMessage(pattern=r"\.bot"))
 async def botc(e): await e.edit("**🤖 Haan bhai, VILLAIN BOT ONLINE hai!**")
 @client.on(events.NewMessage(pattern=r"\.owner"))
@@ -207,7 +208,7 @@ async def weather(e): await e.edit(f"**🌤️ WEATHER - {e.pattern_match.group(
 @client.on(events.NewMessage(pattern=r"\.weather"))
 async def weather2(e): await e.edit("**🌤️ WEATHER:** City ka naam bhi likh! Jaise `.weather Indore`")
 @client.on(events.NewMessage(pattern=r"\.news"))
-async def news(e): await e.edit("**📰 AAJ KI KHABAR:**\n1. VILLAIN BOT V3.0 launch ho gaya! 🔥\n2. Aaj mausam badhiya hai!\n3. Tu bohot aage jayega! 😎")
+async def news(e): await e.edit("**📰 AAJ KI KHABAR:**\n1. VILLAIN BOT V4.0 launch ho gaya! 🔥\n2. Aaj mausam badhiya hai!\n3. Tu bohot aage jayega! 😎")
 @client.on(events.NewMessage(pattern=r"\.screenshot (.+)"))
 async def ss(e): await e.edit(f"**📸 SCREENSHOT:** {e.pattern_match.group(1)} ka screenshot le liya!")
 @client.on(events.NewMessage(pattern=r"\.timer (.+)"))
@@ -313,6 +314,6 @@ async def name(e): await e.edit("**👑 NAME:** VILLAIN 😈")
 @client.on(events.NewMessage(pattern=r"\.age"))
 async def age(e): await e.edit("**🎂 AGE:** 18+ VILLAIN! 😎")
 
-print("VILLAIN USR BOT V3.0 STARTED!")
+print("VILLAIN USR BOT V4.0 STARTED!")
 client.start()
 client.run_until_disconnected()
