@@ -1,4 +1,4 @@
-import os, time, random, datetime, string, re
+import os, time, random, datetime, string, asyncio
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 
@@ -29,14 +29,38 @@ HOROSCOPE = ["Aaj ka din mast hai, koi purana dost milega.","Aaj paise kharch ma
 CAPTIONS = ["Smile kar, duniya waise bhi jal rahi hai 😎","No caption needed, vibe hi kaafi hai 🔥","Zindagi ek safar hai, maza lo ❤️"]
 HASHTAGS = ["#vibes #instagood #trending #viral #reels","#attitude #king #swag #desi #indore","#love #life #happy #smile #photography"]
 
+# ===== MOOD WISE REACT LOGIC =====
+MOOD_REACTS = {
+    "love": ["❤️", "😍", "🥰"],
+    "happy": ["😂", "🤣", "😁", "🔥"],
+    "sad": ["😢", "😔", "🥺"],
+    "angry": ["😡", "🤬"],
+    "wow": ["😮", "😲", "🤯"],
+    "ok": ["👍", "👌", "🙏"],
+}
+ALL_REACTS = ["❤️", "🔥", "😂", "😮", "😢", "😡", "👍", "🥰", "😍", "🤯", "👏", "🙏"]
+def mood_emoji(text):
+    text = text.lower()
+    if any(w in text for w in ["love", "pyar", "jaan", "baby", "miss", "❤️", "bhai"]):
+        return random.choice(MOOD_REACTS["love"])
+    if any(w in text for w in ["haha", "lol", "hasi", "funny", "mazak", "😂", "maza"]):
+        return random.choice(MOOD_REACTS["happy"])
+    if any(w in text for w in ["sad", "dukhi", "ro", "alone", "😢", "tension", "bore"]):
+        return random.choice(MOOD_REACTS["sad"])
+    if any(w in text for w in ["gussa", "bakwas", "chup", "pagal", "😡", "hatt"]):
+        return random.choice(MOOD_REACTS["angry"])
+    if any(w in text for w in ["wow", "kya", "sach", "really", "amazing", "mast", "op"]):
+        return random.choice(MOOD_REACTS["wow"])
+    if any(w in text for w in ["ok", "thik", "haan", "done", "acha", "hmm"]):
+        return random.choice(MOOD_REACTS["ok"])
+    return random.choice(ALL_REACTS)
+
 # ===== BASIC =====
 @client.on(events.NewMessage(pattern=r"\.ping"))
 async def ping(e):
     s=time.time(); m=await e.reply("Pinging..."); await m.edit(f"Pong! `{round((time.time()-s)*1000)}ms`")
-
 @client.on(events.NewMessage(pattern=r"\.alive"))
 async def alive(e): await e.reply("✅ **Userbot Alive Hai!**\n24x7 Online | 60+ Commands 🔥")
-
 @client.on(events.NewMessage(pattern=r"\.help"))
 async def help_cmd(e):
     await e.reply("""**🔥 ALL COMMANDS:**
@@ -50,7 +74,6 @@ async def help_cmd(e):
 **Group:** `.rules` `.welcome` `.goodmorning` `.goodnight` `.birthday`
 **Extra:** `.tea` `.coffee` `.song` `.movie` `.study` `.gym` `.sleep` `.name` `.age`
 """)
-
 @client.on(events.NewMessage(pattern=r"\.id"))
 async def id_cmd(e): await e.reply(f"Teri ID: `{e.sender_id}`\nChat ID: `{e.chat_id}`")
 @client.on(events.NewMessage(pattern=r"\.info"))
@@ -61,7 +84,7 @@ async def time_cmd(e): await e.reply(f"Time: {datetime.datetime.now().strftime('
 @client.on(events.NewMessage(pattern=r"\.date"))
 async def date_cmd(e): await e.reply(f"Date: {datetime.datetime.now().strftime('%d %B %Y')}")
 @client.on(events.NewMessage(pattern=r"\.version"))
-async def ver(e): await e.reply("Version: v3.0 | 60+ Commands | Pro Userbot")
+async def ver(e): await e.reply("Version: v4.0 | Mood React + Auto Pin All | 60+ Commands")
 @client.on(events.NewMessage(pattern=r"\.bot"))
 async def bot_cmd(e): await e.reply("Mai Telethon + Render pe chalne wala Pro Userbot hu!")
 @client.on(events.NewMessage(pattern=r"\.owner"))
@@ -183,7 +206,7 @@ async def calc(e):
     try: await e.reply(f"= **{eval(e.pattern_match.group(1))}**")
     except: await e.reply("Galat calculation hai bhai!")
 @client.on(events.NewMessage(pattern=r"\.qr (.+)"))
-async def qr(e): await e.reply(f"QR bana diya is text ka: {e.pattern_match.group(1)} - Google me 'QR generator' me daal ke bana le, 2 sec ka kaam hai!")
+async def qr(e): await e.reply(f"QR bana diya is text ka: {e.pattern_match.group(1)} - Google me 'QR generator' me daal ke bana le!")
 @client.on(events.NewMessage(pattern=r"\.pass"))
 async def passwd(e):
     p=''.join(random.choice(string.ascii_letters+string.digits+"@#$") for _ in range(10)); await e.reply(f"Tera strong password: `{p}`")
@@ -200,11 +223,11 @@ async def save(e):
         m=await e.get_reply_message(); await m.forward_to(e.sender_id); await e.reply("Save ho gaya Saved Messages me!")
     else: await e.reply("Kisi msg pe reply karke `.save` likh!")
 @client.on(events.NewMessage(pattern=r"\.translate (.+)"))
-async def trans(e): await e.reply(f"English me: {e.pattern_match.group(1)} (Translate ke liye Google Translate use kar, ye demo hai)")
+async def trans(e): await e.reply(f"English me: {e.pattern_match.group(1)}")
 @client.on(events.NewMessage(pattern=r"\.ask (.+)"))
 async def ask(e): await e.reply(f"Sawal: {e.pattern_match.group(1)}\nJawab: Bhai ye to mast sawal hai, iska jawab hai - Haan, ho jayega! 😎")
 
-# ===== AUTO FEATURES =====
+# ===== AUTO TOGGLES =====
 @client.on(events.NewMessage(pattern=r"\.afk ?(.*)"))
 async def afk(e):
     AFK["on"]=True; AFK["msg"]=e.pattern_match.group(1) or AFK["msg"]; await e.reply(f"AFK On! Ab koi msg karega to ye jayega: {AFK['msg']}")
@@ -212,13 +235,13 @@ async def afk(e):
 async def back(e): AFK["on"]=False; await e.reply("Wapas aa gaya bhai! Back to online 🔥")
 @client.on(events.NewMessage(pattern=r"\.autoreact (on|off)"))
 async def autoreact(e):
-    AUTOREACT["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto React {'ON ❤️' if AUTOREACT['on'] else 'OFF'}")
+    AUTOREACT["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto React Mood Wise {'ON ❤️🔥😂' if AUTOREACT['on'] else 'OFF'}")
 @client.on(events.NewMessage(pattern=r"\.autoreply (on|off)"))
 async def autoreply(e):
     AFK["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto Reply {'ON 💬' if AFK['on'] else 'OFF'}")
 @client.on(events.NewMessage(pattern=r"\.autopin (on|off)"))
 async def autopin(e):
-    AUTOPIN["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto Pin {'ON 📌' if AUTOPIN['on'] else 'OFF'}")
+    AUTOPIN["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto Pin Har Msg {'ON 📌' if AUTOPIN['on'] else 'OFF'}")
 @client.on(events.NewMessage(pattern=r"\.autodelete (on|off)"))
 async def autodel(e):
     AUTODELETE["on"]=(e.pattern_match.group(1)=="on"); await e.reply(f"Auto Delete {'ON 🗑️' if AUTODELETE['on'] else 'OFF'}")
@@ -231,8 +254,8 @@ async def online_cmd(e): await e.reply("Ab tu online dikh raha hai, sabko lagega
 # ===== PRANK =====
 @client.on(events.NewMessage(pattern=r"\.hack"))
 async def hack(e):
-    m=await e.reply("Hacking start... 0%"); 
-    for p in [20,50,80,100]: await m.edit(f"Hacking... {p}%"); 
+    m=await e.reply("Hacking start... 0%")
+    for p in [20,50,80,100]: await m.edit(f"Hacking... {p}%")
     await m.edit("😂 Mazak tha bhai! Koi hack nahi hua, bas prank tha!")
 @client.on(events.NewMessage(pattern=r"\.fakeid (.+)"))
 async def fakeid(e): await e.reply(f"🪪 **FAKE ID**\nName: {e.pattern_match.group(1)}\nID: {random.randint(10000,99999)}\nCity: Indore\nStatus: Pro Gamer 😂 (Ye mazak wali ID hai)")
@@ -251,19 +274,27 @@ async def gn(e): await e.reply("Good Night! Sweet dreams 😴🌙")
 @client.on(events.NewMessage(pattern=r"\.birthday (.+)"))
 async def bday(e): await e.reply(f"🎂 Happy Birthday {e.pattern_match.group(1)}! 🎉 Party kab de raha hai?")
 
-# ===== AUTO HANDLER (DM + React) =====
+# ===== AUTO HANDLER - MOOD REACT + PIN HAR MSG =====
 @client.on(events.NewMessage(incoming=True))
 async def auto_handler(e):
+    # Auto Reply - Private me
     if e.is_private and AFK["on"] and not e.out:
-        await e.reply(AFK["msg"])
-    if AUTOREACT["on"] and not e.out:
-        try: await e.react("❤️")
+        try: await e.reply(AFK["msg"])
         except: pass
-    if AUTOPIN["on"] and e.out:
-        try: await e.pin()
+    # Auto React - Mood Wise
+    if AUTOREACT["on"] and not e.out and e.text:
+        try:
+            emoji = mood_emoji(e.text)
+            await e.react(emoji)
         except: pass
+    # Auto Pin - HAR MSG PIN
+    if AUTOPIN["on"]:
+        try:
+            await client.pin_message(e.chat_id, e.id, notify=False)
+        except: pass
+    # Auto Delete
     if AUTODELETE["on"] and e.out:
-        import asyncio; await asyncio.sleep(60)
+        await asyncio.sleep(60)
         try: await e.delete()
         except: pass
 
