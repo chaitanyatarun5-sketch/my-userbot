@@ -1,6 +1,19 @@
 import os, random, time, datetime, asyncio, string
+from flask import Flask
+import threading
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
+
+# ===== RENDER PORT FIX - ISKO MAT HATANA =====
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "VILLAIN BOT IS ALIVE!"
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+threading.Thread(target=run_web, daemon=True).start()
+# ===== PORT FIX KHATAM =====
 
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
@@ -31,7 +44,7 @@ def uptime():
 # ===== BASIC =====
 @client.on(events.NewMessage(pattern=r"\.alive"))
 async def alive(e):
-    txt = "**⚡ VILLAIN USR BOT IS ALIVE! ⚡**\n\n**👑 OWNER :** VILLAIN\n**🔥 STATUS :** ONLINE\n**💀 MODE :** VILLAIN MODE ON\n**⚙️ VERSION :** V6.1 MEGA\n**⏱️ UPTIME :** "+uptime()+"\n**📦 COMMANDS :** 160+\n\n**😈 AB RAJ KAREGA VILLAIN!**"
+    txt = "**⚡ VILLAIN USR BOT IS ALIVE! ⚡**\n\n**👑 OWNER :** VILLAIN\n**🔥 STATUS :** ONLINE\n**💀 MODE :** VILLAIN MODE ON\n**⚙️ VERSION :** V7.0 MEGA\n**⏱️ UPTIME :** "+uptime()+"\n**📦 COMMANDS :** 160+\n\n**😈 AB RAJ KAREGA VILLAIN!**"
     if os.path.exists(ALIVE_PIC):
         await e.reply(file=ALIVE_PIC, message=txt)
     else:
@@ -43,7 +56,7 @@ async def ping(e): await e.edit("**🏓 PONG! VILLAIN IS HERE! 🔥**")
 @client.on(events.NewMessage(pattern=r"\.help"))
 async def help_cmd(e):
     await e.edit(
-        "**🔥 《 VILLAIN 》 V6.1 MEGA ALL COMMANDS 🔥**\n\n"
+        "**🔥 《 VILLAIN 》 V7.0 MEGA ALL COMMANDS 🔥**\n\n"
         "**Basic:** .ping .alive .help .id .info .userinfo .time .date .version .bot .owner .uptime .profile .stats .backup\n\n"
         "**Fun:** .joke .quote .fact .shayari .attitude .roast .roastme .truth .dare .truth2 .dare2 .compliment .meme .meme2 .happy .sad .love .hi .bye .good .slap .kiss .hug .ship .gay .cute .pickup .flirt .insult .darkjoke\n\n"
         "**Game:** .dice .coin .luck .guess .crush .lovecalc .future .horoscope .dream .propose .breakup .bff\n\n"
@@ -57,7 +70,7 @@ async def help_cmd(e):
         "**Villain Special:** .afk [wajah] .sus .top .vs\n\n"
         "**Villain Special 2.0:** .jail .free .kill .revive .wanted .gang\n\n"
         "**Extra:** .tea .coffee .song .movie .study .gym .sleep .name .age\n\n"
-        "**👑 VILLAIN USR BOT V6.1 MEGA**"
+        "**👑 VILLAIN USR BOT V7.0 MEGA**"
     )
 @client.on(events.NewMessage(pattern=r"\.id"))
 async def idc(e): await e.edit(f"**🆔 Teri ID:** `{e.sender_id}`")
@@ -74,7 +87,7 @@ async def timec(e): await e.edit(f"**🕐 TIME:** {datetime.datetime.now().strft
 @client.on(events.NewMessage(pattern=r"\.date"))
 async def datec(e): await e.edit(f"**📅 DATE:** {datetime.datetime.now().strftime('%d-%m-%Y')}")
 @client.on(events.NewMessage(pattern=r"\.version"))
-async def ver(e): await e.edit("**⚡ VILLAIN USR BOT V6.1 MEGA**")
+async def ver(e): await e.edit("**⚡ VILLAIN USR BOT V7.0 MEGA**")
 @client.on(events.NewMessage(pattern=r"\.bot"))
 async def botc(e): await e.edit("**🤖 Haan bhai, VILLAIN BOT ONLINE hai!**")
 @client.on(events.NewMessage(pattern=r"\.owner"))
@@ -232,7 +245,7 @@ async def weather(e): await e.edit(f"**🌤️ WEATHER - {e.pattern_match.group(
 @client.on(events.NewMessage(pattern=r"\.weather"))
 async def weather2(e): await e.edit("**🌤️ WEATHER:** City ka naam bhi likh! Jaise `.weather Indore`")
 @client.on(events.NewMessage(pattern=r"\.news"))
-async def news(e): await e.edit("**📰 AAJ KI KHABAR:**\n1. VILLAIN BOT V6.1 launch ho gaya! 🔥\n2. Aaj mausam badhiya hai!\n3. Tu bohot aage jayega! 😎")
+async def news(e): await e.edit("**📰 AAJ KI KHABAR:**\n1. VILLAIN BOT V7.0 launch ho gaya! 🔥\n2. Aaj mausam badhiya hai!\n3. Tu bohot aage jayega! 😎")
 @client.on(events.NewMessage(pattern=r"\.screenshot (.+)"))
 async def ss(e): await e.edit(f"**📸 SCREENSHOT:** {e.pattern_match.group(1)} ka screenshot le liya!")
 @client.on(events.NewMessage(pattern=r"\.timer (.+)"))
@@ -452,6 +465,6 @@ async def name(e): await e.edit("**👑 NAME:** VILLAIN 😈")
 @client.on(events.NewMessage(pattern=r"\.age"))
 async def age(e): await e.edit("**🎂 AGE:** 18+ VILLAIN! 😎")
 
-print("VILLAIN USR BOT V6.1 STARTED!")
+print("VILLAIN USR BOT V7.0 STARTED!")
 client.start()
 client.run_until_disconnected()
