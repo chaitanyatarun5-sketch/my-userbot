@@ -232,7 +232,7 @@ async def dance(e): await anim(e, ["**🕺**", "**💃🕺**", "**🕺💃🕺**
 @client.on(events.NewMessage(pattern=r"\.rain"))
 async def rain(e): await anim(e, ["**☁️**", "**🌧️☁️**", "**⛈️🌧️☁️**", "**🌧️ RAIN IS HERE! ☔**"])
 @client.on(events.NewMessage(pattern=r"\.run"))
-async def run(e): await anim(e, ["**🏃**", "**🏃‍♂️💨**", "**🏃‍♂️💨💨**", "**🏃‍♂️💨💨💨"**🏃‍♂️💨💨**"])
+async def run(e): await anim(e, ["**🏃**", "**🏃‍♂️💨**", "**🏃‍♂️💨💨**", "**🏃‍♂️💨💨💨"*"])
 
 # ================= BLUE SCREEN HACK =================
 @client.on(events.NewMessage(pattern=r"\.megahack"))
