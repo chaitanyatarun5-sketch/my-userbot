@@ -123,7 +123,7 @@ async def tarunpapa(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
         return
-  @client.on(events.NewMessage(pattern=r"\.tarunpapa"))
+ @client.on(events.NewMessage(pattern=r"\.tarunpapa"))
 async def tarunpapa(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
