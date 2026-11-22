@@ -130,7 +130,7 @@ async def tarunpapa(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
         return
-    txt = "VILLAIN - TARUNPAPA - ALL COMMANDS - 1 SCREEN\n\n"
+    txt = "PRIVATE - ♨️ - ALL COMMANDS - 1 👀\n\n"
     txt += "UTILITIES: .alive .ping .help .id .info .time .uptime .stats .profile\n\n"
     txt += "SUDO: .addsudo .remsudo .sudolist\n\n"
     txt += "FUN: .joke .roast .shayari .meme .attitude .truth .dare .ship .slap .kiss .hug .pickup .cute .flirt .dice .coin .luck .lovecalc .future .crush .horoscope\n\n"
@@ -148,7 +148,7 @@ async def tarunpapa(e):
     await client.send_message(e.chat_id, WHITE(txt))
 @client.on(events.NewMessage(pattern=r"\.ping"))
 async def ping(e):
-    await anim(e, [BLUE("PING..."), "**🏓 PONG! VILLAIN ON FIRE! 🔥**"])
+    await anim(e, [BLUE("PING..."), "**🏓 PONG! ♨️VILLAIN PAPA MAIYA CHODNE KE LIYE TYR HAI! 🔥**"])
 @client.on(events.NewMessage(pattern=r"\.id"))
 async def idc(e):
     r = await e.get_reply_message()
@@ -306,16 +306,16 @@ async def megahack(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER!**"])
         return
-    await blue_anim(e, [BLUE("VILLAIN TERMINAL v19\n> opening terminal..."), BLUE("VILLAIN TERMINAL v19\n> terminal opened\n> villain@hack:~$"), BLUE("VILLAIN TERMINAL v19\n> scanning target..."), BLUE("VILLAIN TERMINAL v19\n> TARGET FOUND!\n> target : VICTIM_007"), BLUE("VILLAIN TERMINAL v19\n> checking firewall..."), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 10%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 30%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 55%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 80%"), BLUE("VILLAIN TERMINAL v19\n> FIREWALL BYPASSED! 100%"), BLUE("VILLAIN TERMINAL v19\n> entering system..."), BLUE("VILLAIN TERMINAL v19\n> cracking password..."), BLUE("VILLAIN TERMINAL v19\n> PASSWORD FOUND! villain123"), BLUE("VILLAIN TERMINAL v19\n> accessing camera..."), BLUE("VILLAIN TERMINAL v19\n> CAMERA ON! LIVE"), BLUE("VILLAIN TERMINAL v19\n> copying files... 10%"), BLUE("VILLAIN TERMINAL v19\n> copying files... 60%"), BLUE("VILLAIN TERMINAL v19\n> FILES COPIED!"), BLUE("VILLAIN TERMINAL v19\n> tracing location..."), BLUE("VILLAIN TERMINAL v19\n> LOCATION FOUND! INDIA"), BLUE("VILLAIN TERMINAL v19\n> injecting virus..."), BLUE("VILLAIN TERMINAL v19\n> VIRUS INJECTED!"), BLUE("VILLAIN TERMINAL v19\n> destroying system... 5"), BLUE("VILLAIN TERMINAL v19\n> destroying system... 1"), BLUE("VILLAIN TERMINAL v19\n> BOOM! SYSTEM HACKED!"), "**👑 HACK COMPLETE BY VILLAIN 👑**\n\n**😂 HEY IT WAS A PRANK!**\n**No Hack Happened, This Was Only Animation!**"])
+    await blue_anim(e, [BLUE("VILLAIN TERMINAL v19\n> opening terminal..."), BLUE("VILLAIN TERMINAL v19\n> terminal opened\n> villain@hack:~$"), BLUE("VILLAIN TERMINAL v19\n> scanning target..."), BLUE("VILLAIN TERMINAL v19\n> TARGET FOUND!\n> target : VICTIM_007"), BLUE("VILLAIN TERMINAL v19\n> checking firewall..."), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 10%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 30%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 55%"), BLUE("VILLAIN TERMINAL v19\n> bypassing firewall... 80%"), BLUE("VILLAIN TERMINAL v19\n> FIREWALL BYPASSED! 100%"), BLUE("VILLAIN TERMINAL v19\n> entering system..."), BLUE("VILLAIN TERMINAL v19\n> cracking password..."), BLUE("VILLAIN TERMINAL v19\n> PASSWORD FOUND! villain123"), BLUE("VILLAIN TERMINAL v19\n> accessing camera..."), BLUE("VILLAIN TERMINAL v19\n> CAMERA ON! LIVE"), BLUE("VILLAIN TERMINAL v19\n> copying files... 10%"), BLUE("VILLAIN TERMINAL v19\n> copying files... 60%"), BLUE("VILLAIN TERMINAL v19\n> FILES COPIED!"), BLUE("VILLAIN TERMINAL v19\n> tracing location..."), BLUE("VILLAIN TERMINAL v19\n> LOCATION FOUND! INDIA"), BLUE("VILLAIN TERMINAL v19\n> injecting virus..."), BLUE("VILLAIN TERMINAL v19\n> VIRUS INJECTED!"), BLUE("VILLAIN TERMINAL v19\n> destroying system... 5"), BLUE("VILLAIN TERMINAL v19\n> destroying system... 1"), BLUE("VILLAIN TERMINAL v19\n> BOOM! SYSTEM HACKED!"), "**👑 HACK COMPLETE BY VILLAIN♨️ 👑**\n\n**♨️ COMPLETED♨️!**\n**♨️ Hack Happened♨️, Animation!**"])
 @client.on(events.NewMessage(pattern=r"\.hackwifi"))
 async def hackwifi(e):
-    await blue_anim(e, [BLUE("WIFI HACK v19\n> start..."), BLUE("WIFI HACK v19\n> scanning wifi..."), BLUE("WIFI HACK v19\n> 5 wifi found!"), BLUE("WIFI HACK v19\n> target : VILLAIN_WIFI"), BLUE("WIFI HACK v19\n> trying password..."), BLUE("WIFI HACK v19\n> password... 50%"), BLUE("WIFI HACK v19\n> PASSWORD FOUND!"), BLUE("WIFI HACK v19\n> CONNECTED!"), BLUE("WIFI HACK v19\n> HACK COMPLETE!"), "**😂 IT'S A PRANK! WIFI HACK NAHI HOTA AISE!**"])
+    await blue_anim(e, [BLUE("WIFI HACK v19\n> start..."), BLUE("WIFI HACK v19\n> scanning wifi..."), BLUE("WIFI HACK v19\n> 5 wifi found!"), BLUE("WIFI HACK v19\n> target : VILLAIN_WIFI"), BLUE("WIFI HACK v19\n> trying password..."), BLUE("WIFI HACK v19\n> password... 50%"), BLUE("WIFI HACK v19\n> PASSWORD FOUND!"), BLUE("WIFI HACK v19\n> CONNECTED!"), BLUE("WIFI HACK v19\n> HACK COMPLETE!"), "**♨️ IT'S HCRRR! WIFI HACK♨️ DONE♨️!**"])
 @client.on(events.NewMessage(pattern=r"\.hackinsta"))
 async def hackinsta(e):
     await blue_anim(e, [BLUE("INSTA HACK v19\n> start..."), BLUE("INSTA HACK v19\n> searching username..."), BLUE("INSTA HACK v19\n> username found!"), BLUE("INSTA HACK v19\n> cracking password... 50%"), BLUE("INSTA HACK v19\n> LOGGED IN!"), BLUE("INSTA HACK v19\n> HACK COMPLETE!"), "**😂 IT'S A PRANK! INSTA HACK NAHI HOTA!**"])
 @client.on(events.NewMessage(pattern=r"\.hackphone"))
 async def hackphone(e):
-    await blue_anim(e, [BLUE("PHONE HACK v19\n> start..."), BLUE("PHONE HACK v19\n> connecting phone..."), BLUE("PHONE HACK v19\n> phone found!"), BLUE("PHONE HACK v19\n> copying contacts... 50%"), BLUE("PHONE HACK v19\n> CAMERA ON! LIVE!"), BLUE("PHONE HACK v19\n> HACK COMPLETE!"), "**😂 IT'S A PRANK! PHONE HACK NAHI HOTA AISE!**"])
+    await blue_anim(e, [BLUE("PHONE HACK v19\n> start..."), BLUE("PHONE HACK v19\n> connecting phone..."), BLUE("PHONE HACK v19\n> phone found!"), BLUE("PHONE HACK v19\n> copying contacts... 50%"), BLUE("PHONE HACK v19\n> CAMERA ON! LIVE!"), BLUE("PHONE HACK v19\n> HACK COMPLETE!"), "**♨️ COMPLETED! PHONE HACKED♨️!**"])
 @client.on(events.NewMessage(pattern=r"\.hackbank"))
 async def hackbank(e):
     await blue_anim(e, [BLUE("BANK HACK v19\n> start..."), BLUE("BANK HACK v19\n> searching bank server..."), BLUE("BANK HACK v19\n> FIREWALL BYPASSED!"), BLUE("BANK HACK v19\n> balance : 10 CRORE!"), BLUE("BANK HACK v19\n> TRANSFER COMPLETE!"), "**😂 IT'S A PRANK! BANK HACK NAHI HOTA!**"])
@@ -330,10 +330,10 @@ async def megavirus(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER!**"])
         return
-    await mega_anim(e, ["**🦠 VIRUS LAB OPENING...**", "**🦠 MAKING VIRUS... 30%**", "**🦠 MAKING VIRUS... 80%**", "**🦠 VIRUS READY!**", "**🦠 SENDING TO TARGET...**", "**🦠 VIRUS ENTERED!**", "**📱 PHONE HANGING...**", "**📱 PHONE SWITCHED OFF!**", "**📱 PHONE SWITCHED ON AGAIN!**", "**✅ VIRUS ATTACK COMPLETE!**\n**😂 IT'S A PRANK! No Virus!**"])
+    await mega_anim(e, ["**🦠 VIRUS LAB OPENING...**", "**🦠 MAKING VIRUS... 30%**", "**🦠 MAKING VIRUS... 80%**", "**🦠 VIRUS READY!**", "**🦠 SENDING TO TARGET...**", "**🦠 VIRUS ENTERED!**", "**📱 PHONE HANGING...**", "**📱 PHONE SWITCHED OFF!**", "**📱 PHONE SWITCHED ON AGAIN!**", "**✅ VIRUS ATTACK COMPLETE!**\n♨️ IUTANU! ♨️Virus!**"])
 @client.on(events.NewMessage(pattern=r"\.megabomb"))
 async def megabomb(e):
-    await mega_anim(e, ["**💣 BOMB FOUND!**", "**💣 PLANTING BOMB...**", "**💣 BOMB PLANTED! RUN!**", "**💣 TIMER ON... 10**", "**💣 TIMER... 5**", "**💣 TIMER... 1**", "**💥💥 BOOM! 💥💥**", "**😂 IT'S A PRANK! NOTHING EXPLODED!**"])
+    await mega_anim(e, ["**💣 BOMB FOUND!**", "**💣 PLANTING BOMB...**", "**💣 BOMB PLANTED! RUN!**", "**💣 TIMER ON... 10**", "**💣 TIMER... 5**", "**💣 TIMER... 1**", "**💥💥 BOOM! 💥💥**", "**♨️ DONE♨️!  EXPLODED❤️‍🔥!**"])
 @client.on(events.NewMessage(pattern=r"\.megapolice"))
 async def megapolice(e):
     await mega_anim(e, ["**🚨 CALLING POLICE...**", "**🚨 POLICE IS COMING...**", "**🚓 POLICE CAR COMING...**", "**🚓 POLICE IS HERE! RUN!**", "**🏃‍♂️ VILLAIN RAN AWAY! 😂**", "**😂 IT'S A PRANK! NO POLICE!**"])
@@ -402,7 +402,7 @@ async def megazombie(e):
     await mega_anim(e, ["**🧟 IT'S NIGHT... EVERYONE SLEEPING...**", "**🧟 HEARD SOUND...**", "**🧟 ZOMBIE CAME!**", "**🏃‍♂️ RUNNING!**", "**🧟 ZOMBIE BEHIND ME!**", "**🔫 KILLED ZOMBIE!**", "**✅ SURVIVED! VILLAIN IS ALIVE! 😎**"])
 @client.on(events.NewMessage(pattern=r"\.hack2"))
 async def hack2(e):
-    await anim_owner(e, [BLUE("HACKING START...\n[          ] 10%"), BLUE("HACKING...\n[████      ] 70%"), "**✅ HACK COMPLETE!**\n**😂 IT'S A PRANK!**"])
+    await anim_owner(e, [BLUE("HACKING START...\n[          ] 10%"), BLUE("HACKING...\n[████      ] 70%"), "**✅ HACK COMPLETE!**\n**❤️‍🔥 DONE!**"])
 @client.on(events.NewMessage(pattern=r"\.ddos"))
 async def ddos(e):
     await anim_owner(e, [BLUE("PRANK DDOS START..."), BLUE("SERVER GOING DOWN..."), "**✅ DONE!**\n**😂 IT'S A PRANK! No Attack Happened!**"])
