@@ -169,7 +169,7 @@ MOVING 2:
 
 PRIVATE:
 .tarunpapa
-""")))
+"""
 
 # ================= BASIC =================
 @client.on(events.NewMessage(pattern=r"\.ping"))
