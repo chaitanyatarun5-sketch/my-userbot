@@ -192,7 +192,7 @@ async def calc(e):
     except: await anim(e, ["**❌ CHECKING...**", "**❌ Write correctly: `.calc 2+2`**"])
 @client.on(events.NewMessage(pattern=r"\.echo(?: |$)(.*)"))
 async def echo(e):
-    # 1 BAAR WALA SAFE ECHO - Reply pe likhoge to usi message ko 1 baar copy karega
+    # 10 BAAR WALA SAFE ECHO - Reply pe likhoge to usi message ko 10 baar copy karega
     rep = await e.get_reply_message()
     if rep and rep.text:
         await anim(e, ["**📢 LISTENING...**", rep.text])
