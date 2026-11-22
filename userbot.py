@@ -123,54 +123,27 @@ async def tarunpapa(e):
     if not is_owner(e):
         await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
         return
-    await client.send_message(e.chat_id, WHITE("""╔══════════════════════════════╗
-║   👑 VILLAIN - TARUNPAPA 👑   ║
-║   ALL COMMANDS - 1 SCREEN    ║
-╚══════════════════════════════╝
-
-UTILITIES:
-.alive .ping .help .id .info .time .uptime .stats .profile
-
-SUDO:
-.addsudo .remsudo .sudolist
-
-FUN:
-.joke .roast .shayari .meme .attitude .truth .dare .ship .slap .kiss .hug .pickup .cute .flirt .dice .coin .luck .lovecalc .future .crush .horoscope
-
-STYLE:
-.echo .shout .bold .reverse .say .bio .caption
-
-WORK:
-.calc .weather .crypto .google .anime .songdl
-
-GROUP:
-.tagall .purge .kick .ban .unban .mute .unmute .promote .demote
-
-HACK - PRANK:
-.megahack .hackwifi .hackinsta .hackphone .hackbank .hackcctv .hack2 .ddos .trace .virus .darkweb .cctv .whatsapp .passwordhack .location .number .varius .hackanim
-
-MEGA LOVE:
-.megalove .megapropose .megawedding .megabreakup .megacrush .love .heart
-
-MEGA FUN:
-.megapolice .megaexam .megaghost .megamoney .megafight .megabirthday .megaalien .megajailbreak .megadon .megamafia .megachai .megapizza .megacricket .megafootball .megaschool .megaiphone .megasuperhero .megazombie .megavirus .megabomb
-
-ANIMATION:
-.bomb .load .fire .moon .dance .rain .run
-
-VILLAIN:
-.jail .free .kill .revive .wanted .gang .sus .vs .top .mafia .don .king .queen
-
-MOVING 1:
-.train .heartbig .fightbig .rocket .carrace .plane .bike .cycle .ship .runbig
-
-MOVING 2:
-.bus .policechase .cricketbig .footballbig .firebig .rainbig .snake .catdog .pubg .moneyfly .dancebig .maggi .thief .ghostrun .lovefly
-
-PRIVATE:
-.tarunpapa
-"""
-
+  @client.on(events.NewMessage(pattern=r"\.tarunpapa"))
+async def tarunpapa(e):
+    if not is_owner(e):
+        await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
+        return
+    txt = "VILLAIN - TARUNPAPA - ALL COMMANDS\n\n"
+    txt += "UTILITIES: .alive .ping .help .id .info .time .uptime .stats .profile\n\n"
+    txt += "SUDO: .addsudo .remsudo .sudolist\n\n"
+    txt += "FUN: .joke .roast .shayari .meme .attitude .truth .dare .ship .slap .kiss .hug .pickup .cute .flirt .dice .coin .luck .lovecalc .future .crush .horoscope\n\n"
+    txt += "STYLE: .echo .shout .bold .reverse .say .bio .caption\n\n"
+    txt += "WORK: .calc .weather .crypto .google .anime .songdl\n\n"
+    txt += "GROUP: .tagall .purge .kick .ban .unban .mute .unmute .promote .demote\n\n"
+    txt += "HACK: .megahack .hackwifi .hackinsta .hackphone .hackbank .hackcctv .hack2 .ddos .trace .virus .darkweb .cctv .whatsapp .passwordhack .location .number .varius .hackanim\n\n"
+    txt += "MEGA LOVE: .megalove .megapropose .megawedding .megabreakup .megacrush .love .heart\n\n"
+    txt += "MEGA FUN: .megapolice .megaexam .megaghost .megamoney .megafight .megabirthday .megaalien .megajailbreak .megadon .megamafia .megachai .megapizza .megacricket .megafootball .megaschool .megaiphone .megasuperhero .megazombie .megavirus .megabomb\n\n"
+    txt += "ANIMATION: .bomb .load .fire .moon .dance .rain .run\n\n"
+    txt += "VILLAIN: .jail .free .kill .revive .wanted .gang .sus .vs .top .mafia .don .king .queen\n\n"
+    txt += "MOVING 1: .train .heartbig .fightbig .rocket .carrace .plane .bike .cycle .ship .runbig\n\n"
+    txt += "MOVING 2: .bus .policechase .cricketbig .footballbig .firebig .rainbig .snake .catdog .pubg .moneyfly .dancebig .maggi .thief .ghostrun .lovefly\n\n"
+    txt += "PRIVATE: .tarunpapa"
+    await client.send_message(e.chat_id, WHITE(txt))
 # ================= BASIC =================
 @client.on(events.NewMessage(pattern=r"\.ping"))
 async def ping(e): await anim(e, [BLUE("PING..."), "**🏓 PONG! VILLAIN ON FIRE! 🔥**"])
