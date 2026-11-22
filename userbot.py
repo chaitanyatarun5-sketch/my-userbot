@@ -498,6 +498,101 @@ async def dancebig(e):
     await mega_anim(e, ["**🎵 MUSIC START...**", "**🕺 DANCE START!**", "**💃🕺 DONO DANCE KAR RAHE HAI!**", "**🕺💃🕺 TEEN LOG DANCE!**", "**💃🕺💃🕺 FULL PARTY!**", "**🎉🎉 DJ BAJA RAHA HAI!**", "**🕺💃 SAB NAACH RAHE HAI!**", "**🎉 VILLAIN KI PARTY! 🔥**"])
 @client.on(events.NewMessage(pattern=r"\.maggi"))
 async def maggi(e):
+async def anim50(e, frames):
+    m = await client.send_message(e.chat_id, frames[0])
+    for f in frames[1:]:
+        await asyncio.sleep(6)
+        try:
+            await m.edit(f)
+        except:
+            pass
+    return m
+
+@client.on(events.NewMessage(pattern=r"\.dil"))
+async def dil(e):
+    await anim50(e, ["🤍", "💛", "🧡", "❤️", "💜", "💙", "💚", "🖤", "❤️"])
+
+@client.on(events.NewMessage(pattern=r"\.aag"))
+async def aag(e):
+    await anim50(e, ["🔥", "🔥🔥", "🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥", "🔥🔥", "🔥"])
+
+@client.on(events.NewMessage(pattern=r"\.chand"))
+async def chand(e):
+    await anim50(e, ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘", "🌑"])
+
+@client.on(events.NewMessage(pattern=r"\.rainbow"))
+async def rainbow(e):
+    await anim50(e, ["🔴", "🟠", "🟡", "🟢", "🔵", "🟣", "🌈", "🔴", "🌈"])
+
+@client.on(events.NewMessage(pattern=r"\.phool"))
+async def phool(e):
+    await anim50(e, ["🌱", "🌿", "🌷", "🌹", "🌺", "🌻", "💐", "🌹", "💐"])
+
+@client.on(events.NewMessage(pattern=r"\.barish"))
+async def barish(e):
+    await anim50(e, ["☁️", "🌧️", "⛈️", "🌧️⛈️", "🌈", "☁️", "🌧️", "🌈", "☁️"])
+
+@client.on(events.NewMessage(pattern=r"\.taara"))
+async def taara(e):
+    await anim50(e, ["⭐", "✨", "🌟", "💫", "⭐", "✨", "🌟", "💫", "⭐"])
+
+@client.on(events.NewMessage(pattern=r"\.suraj"))
+async def suraj(e):
+    await anim50(e, ["🌑", "🌅", "🌄", "☀️", "🌞", "☀️", "🌄", "🌅", "🌞"])
+
+@client.on(events.NewMessage(pattern=r"\.samundar"))
+async def samundar(e):
+    await anim50(e, ["🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊"])
+
+@client.on(events.NewMessage(pattern=r"\.balloon"))
+async def balloon(e):
+    await anim50(e, ["🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈"])
+
+@client.on(events.NewMessage(pattern=r"\.batti"))
+async def batti(e):
+    await anim50(e, ["💡", "🔦", "💡", "✨", "💡", "🔦", "💡", "✨", "💡"])
+
+@client.on(events.NewMessage(pattern=r"\.gola"))
+async def gola(e):
+    await anim50(e, ["⚪", "🟡", "🟠", "🔴", "🟣", "🔵", "🟢", "⚪", "🌈"])
+
+@client.on(events.NewMessage(pattern=r"\.cat"))
+async def cat(e):
+    await anim50(e, ["🐱", "😺", "😸", "😻", "😽", "😻", "😸", "😺", "🐱"])
+
+@client.on(events.NewMessage(pattern=r"\.momos"))
+async def momos(e):
+    await anim50(e, ["🍜", "🍲", "🍛", "🍕", "🍔", "🍟", "🍕", "🍔", "🍜"])
+
+@client.on(events.NewMessage(pattern=r"\.danceemoji"))
+async def danceemoji(e):
+    await anim50(e, ["🕺", "💃", "🕺💃", "💃🕺", "🕺💃🕺", "💃🕺💃", "🕺💃", "💃🕺", "🕺"])
+
+@client.on(events.NewMessage(pattern=r"\.moon"))
+async def moon50(e):
+    await anim50(e, ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘", "🌑"])
+
+@client.on(events.NewMessage(pattern=r"\.moon2"))
+async def moon2(e):
+    await anim50(e, ["🌑⭐", "🌒✨", "🌓⭐", "🌔✨", "🌕🌟", "🌖✨", "🌗⭐", "🌘✨", "🌑⭐"])
+
+@client.on(events.NewMessage(pattern=r"\.moon3"))
+async def moon3(e):
+    await anim50(e, ["🌑", "🌕", "🌝", "🌚", "🌙", "🌛", "🌜", "🌙", "🌕"])
+
+@client.on(events.NewMessage(pattern=r"\.love2"))
+async def love2(e):
+    await anim50(e, ["🤍", "🤍💛", "💛🧡", "🧡❤️", "❤️💜", "💜💙", "💙❤️", "❤️", "💜"])
+
+@client.on(events.NewMessage(pattern=r"\.fire2"))
+async def fire2(e):
+    await anim50(e, ["🔥", "🔥💨", "🔥🔥💨", "🔥🔥🔥💨", "💥", "🔥", "🔥🔥", "💥", "🔥"])
+
+@client.on(events.NewMessage(pattern=r"\.diamond"))
+async def diamond(e):
+    await anim50(e, ["💎", "✨💎", "💎✨", "✨💎✨", "💎", "✨💎", "💎✨", "✨💎✨", "💎"])
+ @client.on(events.NewMessage(pattern=r"\.maggi"))
+async def maggi(e):   
     await mega_anim(e, ["**🍜 MAGGI BANANI HAI...**", "**🍜 PANI GARAM HO RAHA HAI...**", "**🍜 MAGGI DAL DI!**", "**🍜 MASALA DALA!**", "**🍜 MAGGI BAN RAHI HAI... 50%**", "**🍜 MAGGI BAN GAYI!**", "**🍜 KHA RAHA HU... SO TASTY!**", "**🍜 VILLAIN KI MAGGI - 2 MINUTE! 😋**"])
 @client.on(events.NewMessage(pattern=r"\.thief"))
 async def thief(e):
