@@ -78,14 +78,18 @@ async def blue_anim(e, frames):
         except:
             pass
     return m
-async def anim50(e, frames):
+async def anim_fast30(e, frames):
     m = await client.send_message(e.chat_id, frames[0])
-    for f in frames[1:]:
-        await asyncio.sleep(6)
-        try:
-            await m.edit(f)
-        except:
-            pass
+    start = time.time()
+    while time.time() - start < 30:
+        for f in frames[1:]:
+            if time.time() - start >= 30:
+                break
+            await asyncio.sleep(0.8)
+            try:
+                await m.edit(f)
+            except:
+                pass
     return m
 def BLUE(txt):
     return "```\n" + txt + "\n```"
@@ -153,6 +157,9 @@ async def tarunpapa(e):
     txt += "VILLAIN: .jail .free .kill .revive .wanted .gang .sus .vs .top .mafia .don .king .queen\n\n"
     txt += "MOVING 1: .train .heartbig .fightbig .rocket .carrace .plane .bike .cycle .ship .runbig\n\n"
     txt += "MOVING 2: .bus .policechase .cricketbig .footballbig .firebig .rainbig .snake .catdog .pubg .moneyfly .dancebig .maggi .thief .ghostrun .lovefly\n\n"
+    txt += "FAST 30 SEC EMOJI: .dil .aag .chand .rainbow .phool .barish .taara .suraj .samundar .balloon .batti .gola .cat .momos .danceemoji .moon2 .moon3 .love2 .fire2 .diamond\n\n"
+    txt += "NEW EMOJI ONLY 20: .rosebike .propose2 .shadi2 .police2 .chor2 .cricket2 .pubg2 .chai2 .maggi2 .rain2 .fireworks .birthday2 .ghost2 .alien2 .money2 .fight2 .dance2 .heartfly .rocket2 .loveletter\n\n"
+    txt += "NEW TEXT WALE 10: .loveletter2 .bhaag .dost .gunda .hero .khaana .yaar .pagal .raja .rider\n\n"
     txt += "PRIVATE: .tarunpapa"
     await client.send_message(e.chat_id, WHITE(txt))
 @client.on(events.NewMessage(pattern=r"\.ping"))
@@ -519,64 +526,154 @@ async def lovefly(e):
     await mega_anim(e, ["**💌 CHITTHI LIKH RAHA HU...**", "**💌 CHITTHI UD RAHI HAI...**", "**💌 CHITTHI JA RAHI HAI...**", "**💌 CHITTHI PAHUCH GAYI!**", "**❤️ USNE PADH LI!**", "**❤️ USNE HAAN BOL DIYA!**", "**💍 SHADI PAKKI!**", "**❤️ VILLAIN KO PYAAR MIL GAYA! 😍**"])
 @client.on(events.NewMessage(pattern=r"\.dil"))
 async def dil(e):
-    await anim50(e, ["🤍", "💛", "🧡", "❤️", "💜", "💙", "💚", "🖤", "❤️"])
+    await anim_fast30(e, ["🤍", "💛", "🧡", "❤️", "💜", "💙", "💚", "🖤", "❤️"])
 @client.on(events.NewMessage(pattern=r"\.aag"))
 async def aag(e):
-    await anim50(e, ["🔥", "🔥🔥", "🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥", "🔥🔥", "🔥"])
+    await anim_fast30(e, ["🔥", "🔥🔥", "🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥🔥🔥", "🔥🔥🔥🔥", "🔥🔥🔥", "🔥🔥", "🔥"])
 @client.on(events.NewMessage(pattern=r"\.chand"))
 async def chand(e):
-    await anim50(e, ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘", "🌑"])
+    await anim_fast30(e, ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘", "🌑"])
 @client.on(events.NewMessage(pattern=r"\.rainbow"))
 async def rainbow(e):
-    await anim50(e, ["🔴", "🟠", "🟡", "🟢", "🔵", "🟣", "🌈", "🔴", "🌈"])
+    await anim_fast30(e, ["🔴", "🟠", "🟡", "🟢", "🔵", "🟣", "🌈", "🔴", "🌈"])
 @client.on(events.NewMessage(pattern=r"\.phool"))
 async def phool(e):
-    await anim50(e, ["🌱", "🌿", "🌷", "🌹", "🌺", "🌻", "💐", "🌹", "💐"])
+    await anim_fast30(e, ["🌱", "🌿", "🌷", "🌹", "🌺", "🌻", "💐", "🌹", "💐"])
 @client.on(events.NewMessage(pattern=r"\.barish"))
 async def barish(e):
-    await anim50(e, ["☁️", "🌧️", "⛈️", "🌧️⛈️", "🌈", "☁️", "🌧️", "🌈", "☁️"])
+    await anim_fast30(e, ["☁️", "🌧️", "⛈️", "🌧️⛈️", "🌈", "☁️", "🌧️", "🌈", "☁️"])
 @client.on(events.NewMessage(pattern=r"\.taara"))
 async def taara(e):
-    await anim50(e, ["⭐", "✨", "🌟", "💫", "⭐", "✨", "🌟", "💫", "⭐"])
+    await anim_fast30(e, ["⭐", "✨", "🌟", "💫", "⭐", "✨", "🌟", "💫", "⭐"])
 @client.on(events.NewMessage(pattern=r"\.suraj"))
 async def suraj(e):
-    await anim50(e, ["🌑", "🌅", "🌄", "☀️", "🌞", "☀️", "🌄", "🌅", "🌞"])
+    await anim_fast30(e, ["🌑", "🌅", "🌄", "☀️", "🌞", "☀️", "🌄", "🌅", "🌞"])
 @client.on(events.NewMessage(pattern=r"\.samundar"))
 async def samundar(e):
-    await anim50(e, ["🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊"])
+    await anim_fast30(e, ["🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊", "🌊🌊", "🌊🌊🌊", "🌊🌊", "🌊"])
 @client.on(events.NewMessage(pattern=r"\.balloon"))
 async def balloon(e):
-    await anim50(e, ["🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈"])
+    await anim_fast30(e, ["🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈", "🎈🎈", "🎈🎈🎈", "💥", "🎈"])
 @client.on(events.NewMessage(pattern=r"\.batti"))
 async def batti(e):
-    await anim50(e, ["💡", "🔦", "💡", "✨", "💡", "🔦", "💡", "✨", "💡"])
+    await anim_fast30(e, ["💡", "🔦", "💡", "✨", "💡", "🔦", "💡", "✨", "💡"])
 @client.on(events.NewMessage(pattern=r"\.gola"))
 async def gola(e):
-    await anim50(e, ["⚪", "🟡", "🟠", "🔴", "🟣", "🔵", "🟢", "⚪", "🌈"])
+    await anim_fast30(e, ["⚪", "🟡", "🟠", "🔴", "🟣", "🔵", "🟢", "⚪", "🌈"])
 @client.on(events.NewMessage(pattern=r"\.cat"))
 async def cat(e):
-    await anim50(e, ["🐱", "😺", "😸", "😻", "😽", "😻", "😸", "😺", "🐱"])
+    await anim_fast30(e, ["🐱", "😺", "😸", "😻", "😽", "😻", "😸", "😺", "🐱"])
 @client.on(events.NewMessage(pattern=r"\.momos"))
 async def momos(e):
-    await anim50(e, ["🍜", "🍲", "🍛", "🍕", "🍔", "🍟", "🍕", "🍔", "🍜"])
+    await anim_fast30(e, ["🍜", "🍲", "🍛", "🍕", "🍔", "🍟", "🍕", "🍔", "🍜"])
 @client.on(events.NewMessage(pattern=r"\.danceemoji"))
 async def danceemoji(e):
-    await anim50(e, ["🕺", "💃", "🕺💃", "💃🕺", "🕺💃🕺", "💃🕺💃", "🕺💃", "💃🕺", "🕺"])
+    await anim_fast30(e, ["🕺", "💃", "🕺💃", "💃🕺", "🕺💃🕺", "💃🕺💃", "🕺💃", "💃🕺", "🕺"])
 @client.on(events.NewMessage(pattern=r"\.moon2"))
 async def moon2(e):
-    await anim50(e, ["🌑⭐", "🌒✨", "🌓⭐", "🌔✨", "🌕🌟", "🌖✨", "🌗⭐", "🌘✨", "🌑⭐"])
+    await anim_fast30(e, ["🌑⭐", "🌒✨", "🌓⭐", "🌔✨", "🌕🌟", "🌖✨", "🌗⭐", "🌘✨", "🌑⭐"])
 @client.on(events.NewMessage(pattern=r"\.moon3"))
 async def moon3(e):
-    await anim50(e, ["🌑", "🌕", "🌝", "🌚", "🌙", "🌛", "🌜", "🌙", "🌕"])
+    await anim_fast30(e, ["🌑", "🌕", "🌝", "🌚", "🌙", "🌛", "🌜", "🌙", "🌕"])
 @client.on(events.NewMessage(pattern=r"\.love2"))
 async def love2(e):
-    await anim50(e, ["🤍", "🤍💛", "💛🧡", "🧡❤️", "❤️💜", "💜💙", "💙❤️", "❤️", "💜"])
+    await anim_fast30(e, ["🤍", "🤍💛", "💛🧡", "🧡❤️", "❤️💜", "💜💙", "💙❤️", "❤️", "💜"])
 @client.on(events.NewMessage(pattern=r"\.fire2"))
 async def fire2(e):
-    await anim50(e, ["🔥", "🔥💨", "🔥🔥💨", "🔥🔥🔥💨", "💥", "🔥", "🔥🔥", "💥", "🔥"])
+    await anim_fast30(e, ["🔥", "🔥💨", "🔥🔥💨", "🔥🔥🔥💨", "💥", "🔥", "🔥🔥", "💥", "🔥"])
 @client.on(events.NewMessage(pattern=r"\.diamond"))
 async def diamond(e):
-    await anim50(e, ["💎", "✨💎", "💎✨", "✨💎✨", "💎", "✨💎", "💎✨", "✨💎✨", "💎"])
+    await anim_fast30(e, ["💎", "✨💎", "💎✨", "✨💎✨", "💎", "✨💎", "💎✨", "✨💎✨", "💎"])
+@client.on(events.NewMessage(pattern=r"\.rosebike"))
+async def rosebike(e):
+    await anim_fast30(e, ["🏍️", "🏍️💨", "🏍️💨💨", "🏍️", "🌹", "🌹💍", "❤️", "❤️💍", "🎉❤️"])
+@client.on(events.NewMessage(pattern=r"\.propose2"))
+async def propose2(e):
+    await anim_fast30(e, ["👀", "😍", "💌", "🌹", "🌹💍", "❤️", "❤️😍", "💍", "🎉❤️"])
+@client.on(events.NewMessage(pattern=r"\.shadi2"))
+async def shadi2(e):
+    await anim_fast30(e, ["💍", "🎉", "💃🕺", "👰", "🤵", "💍❤️", "❤️", "🎉🎉", "❤️🎉"])
+@client.on(events.NewMessage(pattern=r"\.police2"))
+async def police2(e):
+    await anim_fast30(e, ["🏃", "🏃‍♂️💨", "🚓", "🚓💨", "🏃‍♂️💨💨", "🚓🏃", "👮", "⛓️", "😂👮"])
+@client.on(events.NewMessage(pattern=r"\.chor2"))
+async def chor2(e):
+    await anim_fast30(e, ["🌑", "🥷", "🥷🏠", "💰", "💡", "😱", "🚓", "⛓️", "😂"])
+@client.on(events.NewMessage(pattern=r"\.cricket2"))
+async def cricket2(e):
+    await anim_fast30(e, ["🏏", "🏏🏐", "🏏💨", "🏏🎉", "🏏💯", "🏆", "🎉", "🇮🇳", "🏆🔥"])
+@client.on(events.NewMessage(pattern=r"\.pubg2"))
+async def pubg2(e):
+    await anim_fast30(e, ["🪂", "🪂💨", "🪂", "🔫", "🔫💥", "🔫🎯", "🏆", "🍗", "🏆🍗"])
+@client.on(events.NewMessage(pattern=r"\.chai2"))
+async def chai2(e):
+    await anim_fast30(e, ["☕", "☕♨️", "☕", "☕🥛", "☕♨️♨️", "☕", "☕😋", "☕", "☕😎"])
+@client.on(events.NewMessage(pattern=r"\.maggi2"))
+async def maggi2(e):
+    await anim_fast30(e, ["🍜", "🍜♨️", "🍜", "🍜✨", "🍜♨️", "🍜", "🍜😋", "😋", "🍜🔥"])
+@client.on(events.NewMessage(pattern=r"\.rain2"))
+async def rain2(e):
+    await anim_fast30(e, ["☁️", "☁️☁️", "🌧️", "🌧️🌧️", "⛈️", "☔", "🌈", "🌈☔", "☔😎"])
+@client.on(events.NewMessage(pattern=r"\.fireworks"))
+async def fireworks(e):
+    await anim_fast30(e, ["🎆", "🎆💥", "💥", "🎆🎆", "🌟", "🎆🎆🎆", "🎉", "🎆", "🎆🎉"])
+@client.on(events.NewMessage(pattern=r"\.birthday2"))
+async def birthday2(e):
+    await anim_fast30(e, ["🎂", "🎈", "🎂🎈", "🕯️", "🎉", "🎂", "🎁", "🎉🎉", "🎂🎉"])
+@client.on(events.NewMessage(pattern=r"\.ghost2"))
+async def ghost2(e):
+    await anim_fast30(e, ["🌑", "👻", "👻👀", "👻", "🏃", "🏃‍♂️💨", "🚪", "😂", "👻😂"])
+@client.on(events.NewMessage(pattern=r"\.alien2"))
+async def alien2(e):
+    await anim_fast30(e, ["🌌", "🛸", "👽", "👽👋", "🌌🛸", "🌕", "🛸", "😂", "👽😎"])
+@client.on(events.NewMessage(pattern=r"\.money2"))
+async def money2(e):
+    await anim_fast30(e, ["💰", "💰💰", "💰💰💰", "💰✨", "🏎️", "🏠", "👑", "💰👑", "💰🔥"])
+@client.on(events.NewMessage(pattern=r"\.fight2"))
+async def fight2(e):
+    await anim_fast30(e, ["⚔️", "🥊", "🥊💥", "💥", "😵", "🥊", "💥💥", "🏆", "👑"])
+@client.on(events.NewMessage(pattern=r"\.dance2"))
+async def dance2(e):
+    await anim_fast30(e, ["🎵", "🕺", "💃🕺", "🕺💃🕺", "🎉", "💃🕺💃", "🎉🎉", "🔥", "🎉🔥"])
+@client.on(events.NewMessage(pattern=r"\.heartfly"))
+async def heartfly(e):
+    await anim_fast30(e, ["🤍", "💛", "🧡", "❤️", "❤️💌", "💌", "❤️", "💍", "❤️🎉"])
+@client.on(events.NewMessage(pattern=r"\.rocket2"))
+async def rocket2(e):
+    await anim_fast30(e, ["🚀", "🚀💨", "🚀", "🚀🌌", "🚀🌕", "🌕", "🚀", "🚀🌍", "🚀😎"])
+@client.on(events.NewMessage(pattern=r"\.loveletter"))
+async def loveletter(e):
+    await anim_fast30(e, ["💌", "💌✍️", "💌", "💌💨", "💌❤️", "❤️", "❤️😍", "❤️", "💍❤️"])
+@client.on(events.NewMessage(pattern=r"\.loveletter2"))
+async def loveletter2(e):
+    await mega_anim(e, ["**💌 CHITTHI LIKH RAHA HU...**", "**💌 CHITTHI UD RAHI HAI...**", "**💌 CHITTHI PAHUCH GAYI!**", "**❤️ USNE PADH LI!**", "**❤️ HAAN BOL DIYA!**", "**💍 SHADI PAKKI!**"])
+@client.on(events.NewMessage(pattern=r"\.bhaag"))
+async def bhaag(e):
+    await mega_anim(e, ["**🏃 BHAG RAHA HU...**", "**🏃‍♂️💨 TEZ BHAG RAHA HU!**", "**🐕 KUTTA PEECHE HAI!**", "**🏃‍♂️💨💨 AUR TEZ!**", "**🏃 BACH GAYA!**", "**😂 VILLAIN BACH GAYA!**"])
+@client.on(events.NewMessage(pattern=r"\.dost"))
+async def dost(e):
+    await mega_anim(e, ["**🤝 DOST AA RAHA HAI...**", "**🤝 GALE MIL RAHE HAI!**", "**😂 MASTI HO RAHI HAI!**", "**🎉 PARTY HO RAHI HAI!**", "**🤝 DOSTI ZINDABAD!**"])
+@client.on(events.NewMessage(pattern=r"\.gunda"))
+async def gunda(e):
+    await mega_anim(e, ["**😈 GUNDA AA GAYA!**", "**😈 SAB DARR GAYE!**", "**💥 GUNDA NE MARA!**", "**👑 VILLAIN AA GAYA!**", "**👑 GUNDA BHI DARR GAYA!**", "**👑 VILLAIN KING!**"])
+@client.on(events.NewMessage(pattern=r"\.hero"))
+async def hero(e):
+    await mega_anim(e, ["**🦸 HERO AA RAHA HAI...**", "**🦸 HERO NE ENTRY MARI!**", "**💥 DUSHMAN KO MARA!**", "**🏆 HERO JEET GAYA!**", "**🦸 VILLAIN IS HERO!**"])
+@client.on(events.NewMessage(pattern=r"\.khaana"))
+async def khaana(e):
+    await mega_anim(e, ["**🍜 BHOOK LAGI HAI...**", "**🍜 KHANA BAN RAHA HAI...**", "**🍜 KHANA BAN GAYA!**", "**🍜 KHA RAHA HU...**", "**😋 MAZA AA GAYA!**", "**🍜 VILLAIN KA KHANA!**"])
+@client.on(events.NewMessage(pattern=r"\.yaar"))
+async def yaar(e):
+    await mega_anim(e, ["**😎 YAAR AA GAYA!**", "**😎 YAARI HO RAHI HAI!**", "**🎉 MAZA AA RAHA HAI!**", "**😎 YAAR = VILLAIN!**"])
+@client.on(events.NewMessage(pattern=r"\.pagal"))
+async def pagal(e):
+    await mega_anim(e, ["**🤪 PAGAL AA GAYA!**", "**🤪 PAGALPANTI HO RAHI HAI!**", "**😂 SAB HAS RAHE HAI!**", "**🤪 VILLAIN PAGAL HAI!**"])
+@client.on(events.NewMessage(pattern=r"\.raja"))
+async def raja(e):
+    await mega_anim(e, ["**👑 RAJA AA RAHA HAI...**", "**👑 RAJA BAITHA!**", "**👑 SAB JHUK GAYE!**", "**👑 RAJA = VILLAIN!**"])
+@client.on(events.NewMessage(pattern=r"\.rider"))
+async def rider(e):
+    await mega_anim(e, ["**🏍️ RIDER AA RAHA HAI...**", "**🏍️💨 RIDER TEZ HAI!**", "**🏍️ RIDER NE WHEELIE MARI!**", "**🏍️ RIDER JEET GAYA!**", "**🏍️ VILLAIN RIDER!**"])
 print("VILLAIN V19 STARTED! 🔥")
 client.start()
 client.run_until_disconnected()
