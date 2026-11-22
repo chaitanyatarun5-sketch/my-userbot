@@ -1,5 +1,5 @@
 # ============================================================
-# 👑 VILLAIN USERBOT - V19 FINAL - ALL IN ONE - 151 COMMANDS
+# 👑 VILLAIN USERBOT - V19 FINAL - ALL IN ONE - 151 COMMANDS + .tarunpapa PRIVATE 
 # ============================================================
 import os, random, asyncio, time, json, datetime, threading
 from flask import Flask
@@ -68,7 +68,15 @@ async def blue_anim(e, frames):
         try: await m.edit(f)
         except: pass
     return m
+async def white_anim(e, frames):
+    m = await client.send_message(e.chat_id, frames[0])
+    for f in frames[1:]:
+        await asyncio.sleep(2)
+        try: await m.edit(f)
+        except: pass
+    return m
 def BLUE(txt): return f"```\n{txt}\n```"
+def WHITE(txt): return f"```\n{txt}\n```"
 
 # ================= SUDO =================
 @client.on(events.NewMessage(pattern=r"\.addsudo(?: |$)(.*)"))
@@ -107,6 +115,20 @@ async def help_cmd(e):
         BLUE("╔══════════════════════════════╗\n║   🔥 MEGA MENU 🔥          ║\n╚══════════════════════════════╝\n\n> MEGA ANIMATION\n──────────────────────────────\n\n• MEGA LOVE\n  .megalove .megapropose\n  .megawedding .megabreakup\n  .megacrush .love .heart\n\n• MEGA FUN\n  .megapolice .megaexam .megaghost\n  .megamoney .megafight .megabirthday\n  .megaalien .megajailbreak .megadon\n  .megamafia .megachai .megapizza\n  .megacricket .megafootball .megaschool\n  .megaiphone .megasuperhero .megazombie\n  .megavirus .megabomb\n\n• ANIMATION\n  .bomb .load .fire .moon\n  .dance .rain .run\n\n──────────────────────────────\nVILLAIN • USERBOT • PRIME"),
         BLUE("╔══════════════════════════════╗\n║   👑 VILLAIN MENU 👑       ║\n╚══════════════════════════════╝\n\n> VILLAIN\n──────────────────────────────\n  .jail .free .kill .revive\n  .wanted .gang .sus .vs\n  .top .mafia .don .king .queen\n\n──────────────────────────────\nTYPE .help FOR ALL MENU\nVILLAIN WILL RULE! 🔥"),
         BLUE("╔══════════════════════════════╗\n║   🚂 MOVING ANIMATION 🚂   ║\n║   EMOJI WALA - V19          ║\n╚══════════════════════════════╝\n\n> MOVING - SIRF EMOJI CHALEGA!\n──────────────────────────────\n\n• MOVING 1\n  .train .heartbig .fightbig\n  .rocket .carrace .plane\n  .bike .cycle .ship .runbig\n\n• MOVING 2 - 15 NAYE\n  .bus .policechase .cricketbig\n  .footballbig .firebig .rainbig\n  .snake .catdog .pubg .moneyfly\n  .dancebig .maggi .thief\n  .ghostrun .lovefly\n\n──────────────────────────────\nTU BAS COMMAND LIKH\nBOT KHUD EMOJI CHALAYEGA!")
+    ])
+
+# ================= PRIVATE - .tarunpapa - WHITE SCREEN =================
+@client.on(events.NewMessage(pattern=r"\.tarunpapa"))
+async def tarunpapa(e):
+    if not is_owner(e):
+        await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER CAN USE THIS!**"])
+        return
+    await white_anim(e, [
+        WHITE("╔══════════════════════════════╗\n║   👑 VILLAIN USERBOT 👑      ║\n║   PRIVATE MENU - TARUNPAPA   ║\n╚══════════════════════════════╝\n\n> EXTRAS - WHITE SCREEN\n──────────────────────────────\n\n• UTILITIES\n  .alive .ping .help .id .info\n  .time .uptime .stats .profile\n\n• SUDO\n  .addsudo .remsudo .sudolist\n\n• FUN\n  .joke .roast .shayari .meme\n  .attitude .truth .dare .ship\n  .slap .kiss .hug .pickup\n  .cute .flirt .dice .coin\n  .luck .lovecalc .future\n  .crush .horoscope\n\n• STYLE\n  .echo .shout .bold .reverse\n  .say .bio .caption\n\n• WORK\n  .calc .weather .crypto\n  .google .anime .songdl\n\n• GROUP\n  .tagall .purge .kick .ban\n  .unban .mute .unmute\n  .promote .demote\n\n──────────────────────────────\nVILLAIN • PRIVATE • TARUNPAPA"),
+        WHITE("╔══════════════════════════════╗\n║   😈 HACK MENU 😈           ║\n╚══════════════════════════════╝\n\n> HACK - WHITE SCREEN\n──────────────────────────────\n\n• MEGA HACK\n  .megahack .hackwifi .hackinsta\n  .hackphone .hackbank .hackcctv\n\n• PRANK HACK\n  .hack2 .ddos .trace .virus\n  .darkweb .cctv .whatsapp\n  .passwordhack .location\n  .number .varius .hackanim\n\n──────────────────────────────\nALL HACK ARE PRANK! 😂"),
+        WHITE("╔══════════════════════════════╗\n║   🔥 MEGA MENU 🔥          ║\n╚══════════════════════════════╝\n\n> MEGA ANIMATION\n──────────────────────────────\n\n• MEGA LOVE\n  .megalove .megapropose\n  .megawedding .megabreakup\n  .megacrush .love .heart\n\n• MEGA FUN\n  .megapolice .megaexam .megaghost\n  .megamoney .megafight .megabirthday\n  .megaalien .megajailbreak .megadon\n  .megamafia .megachai .megapizza\n  .megacricket .megafootball .megaschool\n  .megaiphone .megasuperhero .megazombie\n  .megavirus .megabomb\n\n• ANIMATION\n  .bomb .load .fire .moon\n  .dance .rain .run\n\n──────────────────────────────\nVILLAIN • PRIVATE • TARUNPAPA"),
+        WHITE("╔══════════════════════════════╗\n║   👑 VILLAIN MENU 👑       ║\n╚══════════════════════════════╝\n\n> VILLAIN\n──────────────────────────────\n  .jail .free .kill .revive\n  .wanted .gang .sus .vs\n  .top .mafia .don .king .queen\n\n──────────────────────────────\nTYPE .tarunpapa FOR PRIVATE MENU"),
+        WHITE("╔══════════════════════════════╗\n║   🚂 MOVING ANIMATION 🚂   ║\n║   EMOJI WALA - V19          ║\n╚══════════════════════════════╝\n\n> MOVING - SIRF EMOJI CHALEGA!\n──────────────────────────────\n\n• MOVING 1\n  .train .heartbig .fightbig\n  .rocket .carrace .plane\n  .bike .cycle .ship .runbig\n\n• MOVING 2 - 15 NAYE\n  .bus .policechase .cricketbig\n  .footballbig .firebig .rainbig\n  .snake .catdog .pubg .moneyfly\n  .dancebig .maggi .thief\n  .ghostrun .lovefly\n\n──────────────────────────────\nTU BAS COMMAND LIKH\nBOT KHUD EMOJI CHALAYEGA!")
     ])
 
 # ================= BASIC =================
@@ -192,7 +214,6 @@ async def calc(e):
     except: await anim(e, ["**❌ CHECKING...**", "**❌ Write correctly: `.calc 2+2`**"])
 @client.on(events.NewMessage(pattern=r"\.echo(?: |$)(.*)"))
 async def echo(e):
-    # 10 BAAR WALA SAFE ECHO - Reply pe likhoge to usi message ko 10 baar copy karega
     rep = await e.get_reply_message()
     if rep and rep.text:
         await anim(e, ["**📢 LISTENING...**", rep.text])
