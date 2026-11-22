@@ -191,7 +191,13 @@ async def calc(e):
         await anim(e, [BLUE("CALCULATING..."), f"**🧮 CALC:** `{q}` = **{eval(q, {'__builtins__':{}})}**"])
     except: await anim(e, ["**❌ CHECKING...**", "**❌ Write correctly: `.calc 2+2`**"])
 @client.on(events.NewMessage(pattern=r"\.echo(?: |$)(.*)"))
-async def echo(e): await anim(e, ["**📢 LISTENING...**", e.pattern_match.group(1) or "**Write something!**"])
+async def echo(e):
+    # 1 BAAR WALA SAFE ECHO - Reply pe likhoge to usi message ko 1 baar copy karega
+    rep = await e.get_reply_message()
+    if rep and rep.text:
+        await anim(e, ["**📢 LISTENING...**", rep.text])
+    else:
+        await anim(e, ["**📢 LISTENING...**", e.pattern_match.group(1) or "**Write something!**"])
 @client.on(events.NewMessage(pattern=r"\.say(?: |$)(.*)"))
 async def say(e): await anim(e, ["**🗣️ SPEAKING...**", e.pattern_match.group(1) or "**Write something!**"])
 @client.on(events.NewMessage(pattern=r"\.shout(?: |$)(.*)"))
@@ -231,8 +237,10 @@ async def moon(e): await anim(e, ["**🌑**", "**🌒**", "**🌓**", "**🌔**"
 async def dance(e): await anim(e, ["**🕺**", "**💃🕺**", "**🕺💃🕺**",  "**🕺💃🕺**", "**💃🕺**", "**💃🕺💃🕺 PARTY STARTED! 🎉**"])
 @client.on(events.NewMessage(pattern=r"\.rain"))
 async def rain(e): await anim(e, ["**☁️**", "**🌧️☁️**", "**⛈️🌧️☁️**", "**🌧️ RAIN IS HERE! ☔**"])
+@client.on(events.NewMessage(pattern=r"\.run"))
+async def run(e): await anim(e, ["**🏃 RUNNING...**", "**🏃‍♂️💨 RUNNING FAST...**", "**🏃‍♂️💨💨 FULL SPEED!**", "**🏃 VILLAIN IS FAST! 😂**"])
 
-# ================= BLUE SCREEN HACK =================
+# ================= BLUE SCREEN HACK - ALL PRANK =================
 @client.on(events.NewMessage(pattern=r"\.megahack"))
 async def megahack(e):
     if not is_owner(e): await anim(e, ["**❌ CHECKING...**", "**❌ ONLY OWNER!**"]); return
@@ -326,7 +334,7 @@ async def number(e): await anim_owner(e, [BLUE("TRACING NUMBER..."), BLUE("FINDI
 @client.on(events.NewMessage(pattern=r"\.varius"))
 async def varius(e): await anim_owner(e, [BLUE("MAKING VARIUS..."), BLUE("INJECTING VARIUS... 50%"), "**✅ VARIUS INJECTED!**\n**😂 JUST KIDDING! No Varius!**"])
 
-# ================= 🚂❤️🥊 MOVING ANIMATION 1 - TRAIN + HEART + FIGHT + 7 =================
+# ================= MOVING ANIMATION 1 =================
 @client.on(events.NewMessage(pattern=r"\.train"))
 async def train(e): await mega_anim(e, ["**🚂 TRAIN AA RAHI HAI...**", "**🚂 TRAIN STATION PE HAI...**\n`🚂____`", "**🚂 TRAIN CHAL PADI!**\n`_🚂___`", "**🚂 TRAIN TEZ HO RAHI HAI!**\n`__🚂__`", "**🚂 TRAIN FULL SPEED!**\n`___🚂_`", "**🚂💨💨 TRAIN BHAG RAHI HAI!**\n`____🚂💨`", "**🚂💨💨💨 TRAIN NIKAL GAYI!**\n`_____🚂💨💨`", "**🚉 TRAIN NEXT STATION PE PAHUCH GAYI!**\n**🚂 VILLAIN EXPRESS! 😎**"])
 @client.on(events.NewMessage(pattern=r"\.heartbig"))
@@ -348,7 +356,7 @@ async def shipanim(e): await mega_anim(e, ["**🚢 SHIP PORT PE HAI...**", "**�
 @client.on(events.NewMessage(pattern=r"\.runbig"))
 async def runbig(e): await mega_anim(e, ["**🏃 BHAGNA START...**", "**🏃 BHAG RAHA HU!**\n`🏃___`", "**🏃‍♂️💨 TEZ BHAG RAHA HU!**\n`_🏃‍♂️💨_`", "**🏃‍♂️💨💨 FULL SPEED!**\n`__🏃‍♂️💨💨`", "**🐕 KUTTA PEECHE PAD GAYA!**\n`__🏃‍♂️💨🐕`", "**🏃‍♂️💨💨💨 AUR TEZ!**\n`___🏃‍♂️💨💨🐕`", "**🏃‍♂️ BACH GAYA!**", "**🏃 VILLAIN IS FASTEST RUNNER! 😂**"])
 
-# ================= 🔥 MOVING ANIMATION 2 - 15 NAYE EMOJI WALE =================
+# ================= MOVING ANIMATION 2 - 15 NAYE =================
 @client.on(events.NewMessage(pattern=r"\.bus"))
 async def bus(e): await mega_anim(e, ["**🚌 BUS AA RAHI HAI...**", "**🚌 BUS STOP PE HAI...**\n`🚌___`", "**🚌 BUS CHAL PADI!**\n`_🚌__`", "**🚌💨 BUS TEZ HO RAHI HAI!**\n`__🚌💨`", "**🚌💨💨 BUS BHAG RAHI HAI!**\n`___🚌💨💨`", "**🚌 BUS PAHUCH GAYI!**", "**🚌 VILLAIN BUS ME! 😎**"])
 @client.on(events.NewMessage(pattern=r"\.policechase"))
