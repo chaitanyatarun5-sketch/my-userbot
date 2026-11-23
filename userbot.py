@@ -33,8 +33,12 @@ def save_sudo():
         with open(SUDO_FILE, "w") as f: json.dump(list(SUDO_USERS), f)
     except: pass
 
+# --- FIXED - e.outgoing ki jagah e.out ---
 def is_owner(e):
-    if e.outgoing: return True
+    try:
+        if getattr(e, "out", False): return True
+        if getattr(getattr(e, "message", None), "out", False): return True
+    except: pass
     if OWNER_ID != 0 and e.sender_id == OWNER_ID: return True
     return False
 def is_sudo(e):
@@ -107,7 +111,7 @@ PIC_FILE = "photo_2026-11-21_19-54-14.jpg"
 
 @client.on(NM(r"\.myid"))
 async def myid_cmd(e):
-    await client.send_message(e.chat_id, f"**Teri ID:** `{e.sender_id}`\n**Chat ID:** `{e.chat_id}`\n**Outgoing:** `{e.outgoing}`")
+    await client.send_message(e.chat_id, f"**Teri ID:** `{e.sender_id}`\n**Chat ID:** `{e.chat_id}`\n**Outgoing:** `{getattr(e, 'out', False)}`")
 
 @client.on(NM(r"\.pic"))
 async def pic_cmd(e):
@@ -257,7 +261,6 @@ async def luck(e): await anim(e, ["**CHECKING LUCK...**", f"**LUCK:** {random.ra
 @client.on(NM(r"\.lovecalc"))
 async def lovecalc(e): await anim(e, ["**CALCULATING LOVE...**", "**CALCULATING LOVE... 50%**", f"**LOVE CALC:** {random.randint(50,100)}% Made For Each Other!"])
 
-# .ship - DONO KAAM EK SATH - Love + Jahaj - koi command hataya nahi
 @client.on(NM(r"\.ship"))
 async def ship(e):
     await anim(e, ["**MAKING SHIP...**", f"**SHIP:** {random.randint(1,100)}% Match!"])
