@@ -1,4 +1,4 @@
-import os, random, asyncio, time, json, datetime, threading
+import os, random, asyncio, time, json, datetime, threading, sys, traceback
 from flask import Flask
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
@@ -11,22 +11,28 @@ def run_flask():
     try:
         port = int(os.environ.get("PORT", 10000))
         app.run(host="0.0.0.0", port=port)
-    except: pass
+    except Exception as e:
+        print(f"FLASK ERROR: {e}", flush=True)
 threading.Thread(target=run_flask, daemon=True).start()
 
-API_ID = int(os.environ.get("API_ID", "0").strip())
+API_ID = int(os.environ.get("API_ID", "0").strip() or "0")
 API_HASH = os.environ.get("API_HASH", "").strip()
 SESSION = os.environ.get("SESSION", "").strip()
 OWNER_ID = int(os.environ.get("OWNER_ID", "0").strip() or "0")
+print(f"CHECK - API_ID={API_ID} SESSION_LEN={len(SESSION)} OWNER_ID={OWNER_ID}", flush=True)
+if API_ID == 0 or not API_HASH or len(SESSION) < 50:
+    print("ERROR - API_ID / API_HASH / SESSION missing in Render Env!", flush=True)
+
 SESSION_OBJ = StringSession(SESSION) if len(SESSION) > 50 else SESSION
 SUDO_FILE = "sudo_users.json"
 try:
     with open(SUDO_FILE) as f: SUDO_USERS = set(json.load(f))
 except: SUDO_USERS = set()
 def save_sudo():
-    with open(SUDO_FILE, "w") as f: json.dump(list(SUDO_USERS), f)
+    try:
+        with open(SUDO_FILE, "w") as f: json.dump(list(SUDO_USERS), f)
+    except: pass
 
-# --- LOCKED - SIRF OWNER + SUDO ---
 def is_owner(e):
     if e.outgoing: return True
     if OWNER_ID != 0 and e.sender_id == OWNER_ID: return True
@@ -44,7 +50,6 @@ def uptime():
 
 client = TelegramClient(SESSION_OBJ, API_ID, API_HASH)
 
-# FIX: outgoing + incoming dono ON - isliye ab apne account se bhi chalega
 def NM(p):
     return events.NewMessage(outgoing=True, incoming=True, pattern=p)
 
@@ -102,7 +107,7 @@ PIC_FILE = "photo_2026-11-21_19-54-14.jpg"
 
 @client.on(NM(r"\.myid"))
 async def myid_cmd(e):
-    await client.send_message(e.chat_id, f"**Teri ID:** `{e.sender_id}`\n**Chat ID:** `{e.chat_id}`\n**Outgoing:** `{e.outgoing}`\n\n**Is ID ko OWNER_ID me daal de!**")
+    await client.send_message(e.chat_id, f"**Teri ID:** `{e.sender_id}`\n**Chat ID:** `{e.chat_id}`\n**Outgoing:** `{e.outgoing}`")
 
 @client.on(NM(r"\.pic"))
 async def pic_cmd(e):
@@ -251,8 +256,14 @@ anim_one(r"\.songdl", ["**FINDING SONG...**", "**SONG: Search on YouTube, KASHYA
 async def luck(e): await anim(e, ["**CHECKING LUCK...**", f"**LUCK:** {random.randint(1,100)}%"])
 @client.on(NM(r"\.lovecalc"))
 async def lovecalc(e): await anim(e, ["**CALCULATING LOVE...**", "**CALCULATING LOVE... 50%**", f"**LOVE CALC:** {random.randint(50,100)}% Made For Each Other!"])
+
+# .ship - DONO KAAM EK SATH - Love + Jahaj - koi command hataya nahi
 @client.on(NM(r"\.ship"))
-async def ship(e): await anim(e, ["**MAKING SHIP...**", f"**SHIP:** {random.randint(1,100)}% Match!"])
+async def ship(e):
+    await anim(e, ["**MAKING SHIP...**", f"**SHIP:** {random.randint(1,100)}% Match!"])
+    await mega_anim(e, ["**SHIP PORT PE HAI...**", "**SHIP CHAL PADA!**", "**SHIP SAMUNDAR ME HAI!**", "**TOOFAN AA GAYA!**", "**KASHYAP KO KHAZANA MIL GAYA!**"])
+@client.on(NM(r"\.ship2"))
+async def ship2(e): await mega_anim(e, ["**SHIP PORT PE HAI...**", "**SHIP CHAL PADA!**", "**SHIP SAMUNDAR ME HAI!**", "**TOOFAN AA GAYA!**", "**KASHYAP KO KHAZANA MIL GAYA!**"])
 
 @client.on(NM(r"\.calc(?: |$)(.*)"))
 async def calc(e):
@@ -428,10 +439,6 @@ async def plane(e): await mega_anim(e, ["**PLANE AIRPORT PE HAI...**", "**PLANE 
 async def bike(e): await mega_anim(e, ["**BIKE START HO RAHI HAI...**", "**BIKE CHAL PADI!**", "**BIKE TEZ HO RAHI HAI!**", "**BIKE FULL SPEED!**", "**WHEELIE MAR RAHA HU!**", "**KASHYAP RIDER! KING OF ROAD!**"])
 @client.on(NM(r"\.cycle"))
 async def cycle(e): await mega_anim(e, ["**CYCLE NIKALI...**", "**CYCLE CHAL PADI!**", "**CYCLE TEZ HO RAHI HAI!**", "**GIR GAYA!**", "**FIR UTHA!**", "**PHIR CHAL PADI!**", "**KASHYAP CYCLE CHAMPION!**"])
-@client.on(NM(r"\.ship"))
-async def shipanim(e): await mega_anim(e, ["**SHIP PORT PE HAI...**", "**SHIP CHAL PADA!**", "**SHIP SAMUNDAR ME HAI!**", "**TOOFAN AA GAYA!**", "**TOOFAN SE BACH GAYA!**", "**ISLAND MIL GAYA!**", "**KASHYAP KO KHAZANA MIL GAYA!**"])
-@client.on(NM(r"\.ship2"))
-async def ship2(e): await mega_anim(e, ["**SHIP PORT PE HAI...**", "**SHIP CHAL PADA!**", "**SHIP SAMUNDAR ME HAI!**", "**TOOFAN AA GAYA!**", "**KASHYAP KO KHAZANA MIL GAYA!**"])
 @client.on(NM(r"\.runbig"))
 async def runbig(e): await mega_anim(e, ["**BHAGNA START...**", "**BHAG RAHA HU!**", "**TEZ BHAG RAHA HU!**", "**FULL SPEED!**", "**DOG PEECHE PAD GAYA!**", "**BACH GAYA!**", "**KASHYAP IS FASTEST RUNNER!**"])
 @client.on(NM(r"\.bus"))
@@ -567,6 +574,12 @@ async def raja(e): await mega_anim(e, ["**RAJA AA RAHA HAI...**", "**RAJA BAITHA
 @client.on(NM(r"\.rider"))
 async def rider(e): await mega_anim(e, ["**RIDER AA RAHA HAI...**", "**RIDER TEZ HAI!**", "**RIDER NE WHEELIE MARI!**", "**RIDER JEET GAYA!**", "**KASHYAP RIDER!**"])
 
-print("KASHYAP V20 STARTED!")
-client.start()
-client.run_until_disconnected()
+print("KASHYAP V20 STARTED!", flush=True)
+try:
+    client.start()
+    print("KASHYAP CONNECTED - BOT ONLINE!", flush=True)
+    client.run_until_disconnected()
+except Exception as e:
+    print(f"BOT ERROR: {e}", flush=True)
+    traceback.print_exc()
+    print("BOT STOPPED - SESSION / API CHECK KARO!", flush=True)
